@@ -12,3 +12,4 @@
 *.bak
 *.tmp
 .DS_Store
+operation-rebuild.sublime-workspace

@@ -17,7 +17,7 @@ my $build = ORBuild::Builder->new(
 
   # Code is ISC; game content in share/ is CC-BY-4.0 (see LICENSE). Module::Build
   # and CPAN::Meta have no 'isc' value, so the metadata says open_source and
-  # names the licence in resources below.
+  # names the license in resources below.
   license => 'open_source',
 
   # The frontend (bin/) and the game server (sbin/) both install as scripts.
