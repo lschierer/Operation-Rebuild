@@ -1,2 +1,26 @@
-This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/
+Operation Rebuild is licensed in two parts.
 
+1. Source code (lib/, bin/, sbin/, t/, xt/, inc/, Build.PL): ISC License
+
+Copyright (c) 2026 Luke Schierer
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+2. Game content (share/: data, tables, artwork, sound, documentation text):
+   Creative Commons Attribution 4.0 International (CC-BY-4.0)
+
+Copyright (c) 2026 Luke Schierer. To view a copy of this license, visit
+https://creativecommons.org/licenses/by/4.0/
+
+Material derived from the System Reference Document 5.2.1 is copyright
+Wizards of the Coast LLC and is also licensed under CC-BY-4.0.

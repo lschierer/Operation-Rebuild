@@ -1,0 +1,39 @@
+# Operation Rebuild
+
+A strategy game set after the collapse of a technological civilization,
+using D&D 5.2 SRD-style mechanics. Written in Perl 5.42+ with SDL3 and
+Mooish::Base. Distribution name: `Game-OperationRebuild`.
+
+Status: skeleton. The rules primitives (seeded random source, dice) exist;
+the SDL3 interface and the server are stubs.
+
+## Layout
+
+- `bin/operation-rebuild`: graphical frontend (will autostart a local server)
+- `sbin/operation-rebuild-server`: server with a text admin console
+- `lib/`: all code; `lib/` stays unwoven in git
+- `t/`: tests (Test2::V1); `xt/`: author tests
+- `share/`, `etc/`, `doc/`: data, defaults, documentation
+
+## Developing
+
+Perl comes from `mise` (see `mise.toml`).
+
+    mise run prove        # quick: prove -lr t, straight from lib/
+    mise run test         # perl Build.PL && ./Build && ./Build test
+    perl -Ilib bin/operation-rebuild --version
+
+`./Build` weaves POD with Pod::Weaver into `blib/` only. Source files keep
+their POD under `__END__`; NAME, VERSION, AUTHOR and LICENSE come from
+`weaver.ini`, a `# ABSTRACT:` comment and `Build.PL`. `./Build dist` weaves
+into the tarball, which does not need Pod::Weaver to install.
+
+Use `--debug[=SEED]` on either program for a reproducible game (default
+seed 42). Without it the seed comes from the clock.
+
+See `INSTALL` for installation.
+
+## License
+
+Code: ISC. Game content in `share/`: CC-BY-4.0. SRD-derived material is
+copyright Wizards of the Coast LLC under CC-BY-4.0. See `LICENSE`.

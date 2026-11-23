@@ -1,0 +1,24 @@
+bin/operation-rebuild
+Build.PL
+Changes
+doc/.gitkeep
+etc/.gitkeep
+inc/ORBuild/Builder.pm
+INSTALL
+lib/Game/OperationRebuild.pm
+lib/Game/OperationRebuild/Client.pm
+lib/Game/OperationRebuild/Dice.pm
+lib/Game/OperationRebuild/Random.pm
+lib/Game/OperationRebuild/Role/Debuggable.pm
+lib/Game/OperationRebuild/Server.pm
+LICENSE
+MANIFEST			This list of files
+MANIFEST.SKIP
+README
+sbin/operation-rebuild-server
+share/README
+t/00-load.t
+t/cli.t
+t/random-dice.t
+META.yml
+META.json

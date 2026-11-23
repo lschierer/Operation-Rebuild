@@ -1,0 +1,14 @@
+# Module::Build
+/_build/
+/Build
+/Build.bat
+/blib/
+/MYMETA.*
+/META.yml
+/META.json
+/pm_to_blib
+/Game-OperationRebuild-*/
+/Game-OperationRebuild-*.tar.gz
+*.bak
+*.tmp
+.DS_Store

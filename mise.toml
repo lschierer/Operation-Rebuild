@@ -1,3 +1,19 @@
 [tools]
 perl = "latest"
 pnpm = "latest"
+
+[tasks.build]
+description = "Build into blib/ (weaves POD)"
+run = "perl Build.PL && ./Build"
+
+[tasks.test]
+description = "Build, then run the test suite against blib/"
+run = "perl Build.PL && ./Build && ./Build test"
+
+[tasks.prove]
+description = "Quick test run straight from lib/ (no POD weaving)"
+run = "prove -lr t"
+
+[tasks.authortest]
+description = "Run author tests in xt/"
+run = "perl Build.PL && ./Build && ./Build test --test_files 'xt/*.t'"

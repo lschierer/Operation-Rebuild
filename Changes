@@ -1,0 +1,6 @@
+Revision history for Game-OperationRebuild
+
+0.001 UNRELEASED
+    - Initial skeleton: Module::Build packaging with Pod::Weaver (no
+      Dist::Zilla), seeded random source, dice expressions, and stub
+      frontend (bin/) and server (sbin/) entry points.

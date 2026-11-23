@@ -1,0 +1,12 @@
+Installation
+
+Requires Perl v5.42.0 or later and the SDL3 library with its Perl bindings.
+
+    perl Build.PL
+    ./Build installdeps    # optional: installs missing prerequisites
+    ./Build
+    ./Build test
+    ./Build install
+
+Both bin/operation-rebuild and sbin/operation-rebuild-server are installed
+into the normal script directory.

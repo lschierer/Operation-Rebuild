@@ -1,0 +1,44 @@
+#!/usr/bin/env perl
+
+use v5.42.0;
+use utf8::all;
+
+# PODNAME: operation-rebuild-server
+# ABSTRACT: Game server for Operation Rebuild
+
+use Game::OperationRebuild::Server;
+
+exit Game::OperationRebuild::Server->new->run(@ARGV);
+
+__END__
+
+=head1 SYNOPSIS
+
+  operation-rebuild-server [--listen ADDRESS] [--port PORT] [--debug[=SEED]]
+
+=head1 DESCRIPTION
+
+Runs the game server with a text console for administration. All logic is in
+L<Game::OperationRebuild::Server>.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--listen>, B<-l> ADDRESS
+
+Address to listen on, default 127.0.0.1.
+
+=item B<--port>, B<-p> PORT
+
+TCP port, default 5400.
+
+=item B<--debug>[=SEED]
+
+Use a fixed random seed (default 42) so a game can be reproduced.
+
+=item B<--version>, B<-V>
+
+=item B<--help>, B<-h>
+
+=back

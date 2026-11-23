@@ -1,0 +1,40 @@
+#!/usr/bin/env perl
+
+use v5.42.0;
+use utf8::all;
+
+# PODNAME: operation-rebuild
+# ABSTRACT: Graphical frontend for Operation Rebuild
+
+use Game::OperationRebuild::Client;
+
+exit Game::OperationRebuild::Client->new->run(@ARGV);
+
+__END__
+
+=head1 SYNOPSIS
+
+  operation-rebuild [--server HOST[:PORT]] [--debug[=SEED]]
+
+=head1 DESCRIPTION
+
+Starts the graphical game. Without C<--server> a single-player game is
+started with a local server. All logic is in L<Game::OperationRebuild::Client>.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--server>, B<-s> HOST[:PORT]
+
+Join an existing server.
+
+=item B<--debug>[=SEED]
+
+Use a fixed random seed (default 42) so a game can be reproduced.
+
+=item B<--version>, B<-V>
+
+=item B<--help>, B<-h>
+
+=back
