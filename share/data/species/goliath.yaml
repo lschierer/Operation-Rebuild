@@ -74,5 +74,10 @@ choices:
         name: Storm's Thunder
         channel: mutation
         srd_source: Storm's Thunder
-        explanation: A concussive bellow released when struck.
+        explanation: >-
+          Two small sealed glands under the ribs hold compounds that are
+          harmless apart and violently reactive together. A hard blow bursts
+          the membrane between them, and the goliath vents the resulting
+          pressure as a concussive burst toward whoever struck. The glands
+          refill with rest, which is why the number of uses is limited.
         activation: { action: reaction, trigger: damaged by a creature within 60 feet, damage: 1d8, damage_type: thunder, uses: proficiency_bonus, recharge: long_rest }

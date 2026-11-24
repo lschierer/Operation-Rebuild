@@ -80,14 +80,20 @@ choices:
         name: Drow
         channel: mutation
         srd_source: Drow
-        explanation: >-
+        explanation: |-
           A cave-adapted variant with larger eyes and light-producing skin.
+
+          Each of these draws on an organ the line was engineered with, which makes the compound itself, so the drow carries no materials. The organs refill with rest, which is why the stronger uses recharge on a long rest.
+
+          * Dancing Lights is a small phosphorus gland in each wrist. The compound is released as a fine aerosol that glows as it meets the air. A little goes a long way, so a small gland holds plenty and the ability is effectively at will.
+          * Faerie Fire is a second gland that sprays a luminous marking compound from the wrist, so creatures or objects can be seen and followed.
+          * Darkness is a sac of dark spores released in a cloud.
         effects:
           - { kind: sense, target: darkvision, value: 120 }
         activations:
-          - { name: Bioluminescent Display, srd_replaces: Dancing Lights, uses: at_will }
-          - { name: Luminous Marking, srd_replaces: Faerie Fire, uses: 1, recharge: long_rest, min_level: 3 }
-          - { name: Spore Cloud, srd_replaces: Darkness, uses: 1, recharge: long_rest, min_level: 5 }
+          - { name: Dancing Lights, srd_replaces: Dancing Lights, uses: at_will }
+          - { name: Faerie Fire, srd_replaces: Faerie Fire, uses: 1, recharge: long_rest, min_level: 3 }
+          - { name: Darkness, srd_replaces: Darkness, uses: 1, recharge: long_rest, min_level: 5 }
       - id: high-elf
         name: High Elf
         channel: mutation
@@ -97,12 +103,12 @@ choices:
           and old technology. 
 
           * Prestidigitation is essentially slight of hand, a way of describing exceptionally high fine motor control, coordination, and a sense of timing.
-          * Sense of the Engineered is an array of nanites attuned to detect the ultra low electronic emitions from other nanites that accompany nearly all bioengineered races.
-          * Burst of Speed is a nanite enhanced muscle activation allowing the user superhuman speed over short distances at the cost of higher lactose acid build up, thus requiring recovery between uses.
+          * Detect Magic is a sense of the engineered: an array of nanites attuned to detect the ultra low electronic emitions from other nanites that accompany nearly all bioengineered races.
+          * Misty Step is a burst of speed: a nanite enhanced muscle activation allowing the user superhuman speed over short distances at the cost of higher lactose acid build up, thus requiring recovery between uses.
         activations:
           - { name: Prestidigitation, srd_replaces: Prestidigitation, uses: at_will }
-          - { name: Sense of the Engineered, srd_replaces: Detect Magic, uses: 1, recharge: long_rest, min_level: 3 }
-          - { name: Burst of Speed, srd_replaces: Misty Step, uses: 1, recharge: long_rest, min_level: 5 }
+          - { name: Detect Magic, srd_replaces: Detect Magic, uses: 1, recharge: long_rest, min_level: 3 }
+          - { name: Misty Step, srd_replaces: Misty Step, uses: 1, recharge: long_rest, min_level: 5 }
       - id: wood-elf
         name: Wood Elf
         channel: mutation
@@ -110,12 +116,12 @@ choices:
         explanation: |-
           A longer-legged variant adapted to forest travel.
 
-          * Plant and Animal Affinity applies to bioengineered plants and animals, which make up the bulk of what survive the post-apocolyptic landscape. These almost always have a nanite component enhancing their bioengineered behavior. The wood elf's nanite array is able to interface with these. 
-          * Unlike the High Elf's Burst of Speed nanite activation, the Wood Elf's nanites are optimize to assist muscle endurance. 
-          * With sufficient training and concentration, the elf can use his/her enhanced senses to avoid disrupting nature in a way that allows for tracking providing the Silent Step capability. The rest requirement comes from the required concentration. 
+          * Plant and Animal Speech applies to bioengineered plants and animals, which make up the bulk of what survive the post-apocolyptic landscape. These almost always have a nanite component enhancing their bioengineered behavior. The wood elf's nanite array is able to interface with these. 
+          * Longstrider is endurance: unlike the High Elf's burst of speed, the Wood Elf's nanites are optimized to assist muscle endurance.
+          * With sufficient training and concentration, the elf can use his/her enhanced senses to avoid disrupting nature in a way that allows for tracking providing the Pass without Trace capability. The rest requirement comes from the required concentration. Small glands in the soles and wrists also secrete a scent-masking compound that hides the odour dogs and trackers follow; they refill with rest too.
         effects:
           - { kind: speed, target: walk, value: 5 }
         activations:
-          - { name: Plant and Animal Affinity, srd_replaces: Druidcraft, uses: at_will }
-          - { name: Endurance Sprint, srd_replaces: Longstrider, uses: 1, recharge: long_rest, min_level: 3 }
-          - { name: Silent Step, srd_replaces: Pass without Trace, uses: 1, recharge: long_rest, min_level: 5 }
+          - { name: Plant and Animal Speech, srd_replaces: Druidcraft, uses: at_will }
+          - { name: Longstrider, srd_replaces: Longstrider, uses: 1, recharge: long_rest, min_level: 3 }
+          - { name: Pass without Trace, srd_replaces: Pass without Trace, uses: 1, recharge: long_rest, min_level: 5 }

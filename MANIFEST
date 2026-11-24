@@ -4,6 +4,7 @@ Build.PL
 Changes
 cspell.json
 doc/.gitkeep
+doc/backstory.md
 doc/rules-adaptation.md
 doc/SRD_CC_v5.2.1.pdf
 etc/.gitkeep

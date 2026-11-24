@@ -40,20 +40,20 @@ choices:
         name: Forest Gnome
         channel: mutation
         srd_source: Forest Gnome
-        explanation: >-
+        explanation: |-
           Forest gnomes carry nanites, inherited from mother to child, that
-          work through the skin and the senses. They shift the skin's colour
-          and texture to match the surroundings, and they interpret the
-          sounds and body language of animals. REVIEW: replaces the SRD's
-          Minor Illusion and Speak with Animals spells.
+          work through the skin and the senses.
+
+          * Minor Illusion is nanite camouflage: the skin shifts colour and texture to match the surroundings, making the gnome hard to see while it stays still. REVIEW: exact mechanical benefit.
+          * Speak with Animals is the nanites interpreting the sounds and body language of animals. A Beast can only report what it has perceived: usually the past day for living things, longer for static terrain. Typical information is nearby food and water, and the direction of threats, as the animal sees them.
         activations:
-          - name: Nanite Camouflage
+          - name: Minor Illusion
             srd_replaces: Minor Illusion
             uses: at_will
             effect: >-
               The skin matches the surroundings, making the gnome hard to
               see while it stays still. REVIEW: exact mechanical benefit.
-          - name: Animal Communication
+          - name: Speak with Animals
             srd_replaces: Speak with Animals
             uses: proficiency_bonus
             recharge: long_rest

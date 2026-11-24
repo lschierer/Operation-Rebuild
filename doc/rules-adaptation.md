@@ -107,3 +107,97 @@ Consequences for the rules (proposals, to be confirmed):
   technology in the tech tree raises it. Faith features stay deferred.
 - The SRD provides one subclass per class (Berserker, Champion, Oath of
   Devotion). Specialisations beyond those are our own design.
+
+## Alchemy replaces spells
+
+"Magic Initiate (X)" in the SRD means: choose two cantrips and one level 1
+spell from a spell list. The real design question is what replaces the lists.
+In this setting chemistry is lost as a science but survives as folklore, so a
+spell becomes a **formula**: a remembered recipe that always needs materials.
+Nobody casts; they prepare and use something.
+
+Categories of formula (what the SRD spell becomes):
+
+- **Reaction**: a chemical reaction used as a weapon or tool. Acid, strong
+  endothermic reactions (cold), exothermic reactions (fire, heat, blast),
+  phosphorus (light).
+- **Compound**: a drug or chemical that affects the user (stimulants,
+  steroid-like strengthening, possibly harmful) or its target (poison,
+  sedative).
+- **Trap or ritual**: a prepared setup that triggers a reaction later (the
+  SRD's ritual spells such as Alarm).
+- **Trick**: small effects, such as invisible ink or a signal (Message,
+  Illusory Script, Prestidigitation).
+- **Nanite**: learning to draw on the nanites most people carry, without
+  knowing that is what is happening (Detect Magic, Sleep, Charm Person).
+  Who can learn these depends on how the nanites are spread (open question:
+  all infected humans, only some species, or being able to do this is what
+  makes someone a sage).
+
+Rules for formulas:
+
+- All formulas need materials. Cheap ones are used at will in the SRD sense
+  and still need a supply; materials need an item and supply model.
+- A formula records the SRD spell it replaces (`srd_replaces`), as the species
+  abilities do.
+- Magic Initiate becomes three formula slots: two minor formulas and one
+  stronger formula, chosen from a formulary instead of a spell list.
+
+Dropped, with no formula equivalent: False Life, Find Familiar, Identify, Mage
+Armor, Protection from Evil and Good, Unseen Servant.
+
+Backgrounds: Acolyte is left out until religion has a design (its feat is
+Magic Initiate (Cleric)). Sage uses the Wizard formulary.
+
+## Two levels: what it is, and what people believe
+
+The setting is told at two levels at once.
+
+- **Engineering level** (the designers and the data): bioengineering,
+  nanites, chemistry. This is what the rules and the `explanation` fields
+  describe.
+- **In-world level** (the characters and the player's first impression): after
+  two generations without schools, nobody knows how any of it works, so those
+  who keep fragments of the old knowledge are thought to do magic. This is how
+  things feel and are named in the game.
+
+Every ability should be explainable at the first level and still feel
+fantastic at the second. The opening narrative sets this up (see
+`backstory.md`), with Clarke's third law as its hook.
+
+## Further formula decisions
+
+- **Comprehend Languages** is a nanite formula: a neural interface that
+  translates, more general than the gnomes' animal communication and covering
+  human languages. Those who use it believe it is magic.
+- **Feather Fall** is explained by body, not magic: mostly the dwarf's
+  resistance to injury (you feel the fall less, and get up unbruised, as if you
+  had floated), partly the elf's acrobatic control. For a human sage it is a
+  compound that numbs and relaxes. It is weighted toward the dwarf version.
+
+## Where the two levels live in the data
+
+- `explanation` is the engineering truth and is what the help files show.
+- `name` is what the in-world character calls it, so it should sound
+  fantastic. The SRD names already do (Fey Ancestry, Stonecunning, Detect
+  Magic, Dancing Lights), so keep them where they exist. Names that describe
+  the mechanism (for example "Nanite Camouflage") belong in the
+  `explanation`, not the name.
+- No separate in-world text field exists yet. Add an optional `lore` field
+  only when the game needs flavour text beyond the name.
+
+## Organs and supplies
+
+Species abilities that are chemical reactions work from organs the line was
+engineered with: glands, like a snake's venom sac but placed where it is
+useful (a wrist, as with a comic-book web shooter). The organ makes the
+compound, so these abilities need no materials, and it refills with rest. That
+is why they use the `uses` and `recharge` fields. Only the one or two
+reactions listed in a species file work this way. The organs are small and
+release the compound as a fine aerosol, so a minor effect (a cantrip) is
+effectively at will, and only the stronger uses are limited by rest.
+
+Formulas learned by sages (see "Alchemy replaces spells") are different: they
+have no organ, so they always need materials from outside. Rule of thumb:
+innate ability means internal supply and rest; learned formula means external
+materials.

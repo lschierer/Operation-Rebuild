@@ -60,11 +60,11 @@ subtest 'elf choices and levels' => sub {
   ok($drow->skill_proficient('survival'), 'keen senses survival');
   ok(!$drow->skill_proficient('perception'), 'only the chosen skill');
   ok($drow->has_advantage('save:charmed'), 'fey ancestry');
-  is([ map { $_->{name} } $drow->activations ], [ 'Trance', 'Bioluminescent Display' ], 'level 1 abilities');
+  is([ sort map { $_->{name} } $drow->activations ], [ 'Dancing Lights', 'Trance' ], 'level 1 abilities');
 
   my $drow5 = creature_for('elf', level => 5, choices => { 'elven-lineage' => ['drow'] });
   is([ sort map { $_->{name} } $drow5->activations ],
-    [ 'Bioluminescent Display', 'Luminous Marking', 'Spore Cloud', 'Trance' ], 'level 5 abilities');
+    [ 'Dancing Lights', 'Darkness', 'Faerie Fire', 'Trance' ], 'level 5 abilities');
 
   my $wood = creature_for('elf', choices => { 'elven-lineage' => ['wood-elf'] });
   is($wood->speed, 35, 'wood elf speed');
