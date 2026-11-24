@@ -1,0 +1,55 @@
+# Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC),
+# adapted: explanations are ours and describe biology instead of magic.
+id: dwarf
+name: Dwarf
+srd_source: Dwarf
+creature_type: Humanoid
+size: Medium
+speed: 30
+explanation: >-
+  A line bred for deep mining and tunnel warfare: short, dense, and tolerant
+  of the poisons and dark of underground work.
+traits:
+  - id: darkvision-dwarf
+    name: Darkvision
+    channel: mutation
+    srd_source: Darkvision
+    explanation: >-
+      Enlarged eyes with a reflective layer, bred for lightless tunnels.
+    effects:
+      - { kind: sense, target: darkvision, value: 120 }
+
+  - id: dwarven-resilience
+    name: Dwarven Resilience
+    channel: mutation
+    srd_source: Dwarven Resilience
+    explanation: >-
+      A liver and gut engineered to neutralise the toxins found in mines.
+    effects:
+      - { kind: resistance, target: poison }
+      - { kind: advantage, target: "save:poisoned" }
+
+  - id: dwarven-toughness
+    name: Dwarven Toughness
+    channel: mutation
+    srd_source: Dwarven Toughness
+    explanation: >-
+      Dense bone and muscle that absorb punishment.
+    effects:
+      - { kind: hit_points_per_level, target: max, value: 1 }
+
+  - id: stonecunning
+    name: Stonecunning
+    channel: mutation
+    srd_source: Stonecunning
+    explanation: >-
+      Sensitive vibration receptors in the feet and hands pick up movement
+      through stone.
+    # Player-activated; the engine does not interpret this yet.
+    activation:
+      action: bonus
+      sense: { tremorsense: 60 }
+      duration_minutes: 10
+      requires: touching stone
+      uses: proficiency_bonus
+      recharge: long_rest

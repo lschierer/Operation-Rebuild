@@ -35,6 +35,7 @@ my $build = ORBuild::Builder->new(
     'Mooish::Base'    => 0,
     'SDL3'            => 0,
     'utf8::all'       => 0,
+    'YAML::PP'        => 0,
   },
   build_requires => {
     'Module::Build' => '0.4234',

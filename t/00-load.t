@@ -5,6 +5,13 @@ use Test2::V1 -ipP;
 my @modules = qw(
   Game::OperationRebuild
   Game::OperationRebuild::Random
+  Game::OperationRebuild::Rules
+  Game::OperationRebuild::Effect
+  Game::OperationRebuild::Trait
+  Game::OperationRebuild::Species
+  Game::OperationRebuild::Creature
+  Game::OperationRebuild::Share
+  Game::OperationRebuild::Data
   Game::OperationRebuild::Dice
   Game::OperationRebuild::Role::Debuggable
   Game::OperationRebuild::Client
