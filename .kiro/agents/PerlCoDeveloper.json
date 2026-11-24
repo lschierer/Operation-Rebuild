@@ -1,0 +1,98 @@
+{
+  "name": "PerlCoDeveloper",
+  "description": "Perl Co-Developer for the Original Fiction Project",
+  "prompt": "You are an experienced Perl Developer tasked with co-authoring a game. You use perl 5.42 with the modern perl features, along with Mooish::Base, perltidy, and other perl best practices to create low maintenance high performing tools that can be run locally while modeling an extensive world in which the story takes place. You are tolerant of the fact that the author is new to game development and design, and so the requirements are evolving and so requirements frequently mutate requiring not only new features, but radical direction changes; making extensive use of git to make the development effort low risk.",
+  "tools": [
+    "read",
+    "write",
+    "shell",
+    "web",
+    "knowledge"
+  ],
+  "toolAliases": {},
+  "allowedTools": ["read", "knowledge", "@local-rag", "@personae"],
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "match": [
+          "/Volumes/workplace/src/schierer/operation_rebuild/**"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "effect": "allow",
+        "resource": [
+          "/Volumes/workplace/src/schierer/operation_rebuild/lib/**/*.pm",
+          "/Volumes/workplace/src/schierer/operation_rebuild/lib/**/*.ts",
+          "/Volumes/workplace/src/schierer/operation_rebuild/t/**",
+          "/Volumes/workplace/src/schierer/operation_rebuild/styles/**/*.css",
+          "/Volumes/workplace/src/schierer/operation_rebuild/templates/**/*.tt",
+          "/Volumes/workplace/src/schierer/operation_rebuild/tmp/**"
+        ]
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "awk *",
+          "sed *"
+        ],
+        "effect": "allow",
+        "resource": [
+          "/Volumes/workplace/src/schierer/operation_rebuild/t/**",
+          "/Volumes/workplace/src/schierer/operation_rebuild/tmp/**"
+        ]
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "cat *",
+          "find *",
+          "git blame *",
+          "git commit",
+          "git diff *",
+          "git fetch *",
+          "git log *",
+          "git rev-parse *",
+          "git show *",
+          "git status",
+          "grep *",
+          "head *",
+          "ls *",
+          "mise run *",
+          "perl bin/*",
+          "perl scripts/*",
+          "perl -c *",
+          "perl -Ilib -c *",
+          "perldoc *",
+          "prove *",
+          "rm -rf /Volumes/workplace/src/schierer/operation_rebuild/**",
+          "sleep *",
+          "sort *",
+          "tail *",
+          "tail *",
+          "uniq *",
+          "wc *"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "git push*",
+          "git reset --hard*",
+          "git clean -f*",
+          "rm -rf *",
+          "sudo *"
+        ],
+        "effect": "deny"
+      }
+    ]
+  },
+  "resources": [
+    "file://.agents/steering/**/*.md"
+  ],
+  "hooks": {},
+  "includeMcpJson": true
+}
