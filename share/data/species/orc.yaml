@@ -1,0 +1,45 @@
+# Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC).
+# The SRD orc has no magic, so only the explanations are ours.
+# cspell: disable
+id: orc
+name: Orc
+srd_source: Orc
+creature_type: Humanoid
+size: Medium
+speed: 30
+explanation: >-
+  A tall, heavily muscled line bred for war, with an overdriven adrenal
+  system and the ability to keep fighting when badly hurt.
+traits:
+  - id: darkvision-orc
+    name: Darkvision
+    channel: mutation
+    srd_source: Darkvision
+    explanation: Large, light-gathering eyes.
+    effects:
+      - { kind: sense, target: darkvision, value: 120 }
+
+  - id: adrenaline-rush
+    name: Adrenaline Rush
+    channel: mutation
+    srd_source: Adrenaline Rush
+    explanation: >-
+      A nanite triggered deliberate adrenal surge: a burst of speed that also numbs pain.
+    activation:
+      action: bonus
+      effect: Dash, and gain temporary hit points equal to the proficiency bonus
+      uses: proficiency_bonus
+      recharge: short_or_long_rest
+
+  - id: relentless-endurance
+    name: Relentless Endurance
+    channel: mutation
+    srd_source: Relentless Endurance
+    explanation: >-
+      Redundant organs and nanite-assisted clotting let an orc keep going after a blow that
+      would drop another creature.
+    activation:
+      trigger: reduced to 0 hit points but not killed outright
+      effect: drop to 1 hit point instead
+      uses: 1
+      recharge: long_rest

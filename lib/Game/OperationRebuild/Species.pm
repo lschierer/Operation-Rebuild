@@ -9,8 +9,9 @@ use Mooish::Base;
 use Carp qw(croak);
 use Game::OperationRebuild::Rules qw(@SIZES);
 use Game::OperationRebuild::Trait;
+use Game::OperationRebuild::Choice;
 
-my @KNOWN_KEYS = qw(id name srd_source creature_type size speed explanation traits);
+my @KNOWN_KEYS = qw(id name srd_source creature_type size speed explanation traits choices);
 
 has param id   => (isa => StrMatch [qr/\A[a-z][a-z0-9-]*\z/]);
 has param name => (isa => NonEmptySimpleStr);
@@ -22,6 +23,11 @@ has param explanation => (isa => Str, default => '');
 
 has param traits => (
   isa     => ArrayRef [ InstanceOf ['Game::OperationRebuild::Trait'] ],
+  default => sub { [] },
+);
+
+has param choices => (
+  isa     => ArrayRef [ InstanceOf ['Game::OperationRebuild::Choice'] ],
   default => sub { [] },
 );
 
@@ -38,6 +44,11 @@ sub from_hash ($class, $data) {
   for my $trait ($args{traits}->@*) {
     croak "duplicate trait id '" . $trait->id . "' in species '$data->{id}'"
       if $seen{ $trait->id }++;
+  }
+  $args{choices} = [ map { Game::OperationRebuild::Choice->from_hash($_) } ($data->{choices} // [])->@* ];
+  for my $choice ($args{choices}->@*) {
+    croak "duplicate choice id '" . $choice->id . "' in species '$data->{id}'"
+      if $seen{ $choice->id }++;
   }
   return $class->new(%args);
 }
@@ -89,6 +100,11 @@ In-world description of the line.
 =attr traits
 
 List of L<Game::OperationRebuild::Trait> objects.
+
+=attr choices
+
+List of L<Game::OperationRebuild::Choice> objects: decisions the player
+makes when creating a creature of this species.
 
 =method from_hash
 

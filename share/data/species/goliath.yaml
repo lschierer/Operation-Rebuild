@@ -1,0 +1,78 @@
+# Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC),
+# adapted: the giant "supernatural boons" are skin and muscle mutations.
+# Explanations are ours. REVIEW: Fire's Burn is a flat 1d10 with no fuel
+# tracking. Large Form keeps the SRD size change.
+# cspell: disable
+id: goliath
+name: Goliath
+srd_source: Goliath
+creature_type: Humanoid
+size: Medium
+speed: 35
+explanation: >-
+  A very tall, heavily built line bred for heavy labour and war. Each family
+  line carries one of several skin and muscle mutations. All carry nanites,
+  inherited from mother to child during gestation, that keep their oversized
+  bodies alive: without them, blood pressure alone would be a problem.
+traits:
+  - id: powerful-build
+    name: Powerful Build
+    channel: mutation
+    srd_source: Powerful Build
+    explanation: >-
+      Massive bone and muscle, supported by the inherited nanites. Also counts
+      as one size larger for carrying capacity (not yet modelled).
+    effects:
+      - { kind: advantage, target: "check:end-grappled" }
+      - { kind: flag, target: "carry:counts-as-larger" }
+
+  - id: large-form
+    name: Large Form
+    channel: mutation
+    srd_source: Large Form
+    min_level: 5
+    explanation: >-
+      The inherited nanites that sustain the oversized body can be driven to
+      swell muscle and bone for a short time, making the goliath Large. The
+      duration is game time, not real time.
+    activation:
+      action: bonus
+      uses: 1
+      recharge: long_rest
+      duration_minutes: 10
+      requires: enough space
+      size: Large
+      advantage: "check:strength"
+      speed_bonus: 10
+
+choices:
+  - id: giant-ancestry
+    name: Giant Ancestry
+    pick: 1
+    options:
+      - id: cloud
+        name: Cloud's Jaunt
+        channel: mutation
+        srd_source: Cloud's Jaunt
+        explanation: >-
+          Explosive leg muscles. REVIEW: replaces the SRD's 30 foot teleport
+          with a leap.
+        activation: { action: bonus, movement: leap, distance_feet: 30, requires: unoccupied space in sight, uses: proficiency_bonus, recharge: long_rest }
+      - id: hill
+        name: Hill's Tumble
+        channel: mutation
+        srd_source: Hill's Tumble
+        explanation: Sheer mass that knocks a smaller creature over.
+        activation: { trigger: hit a Large or smaller creature, condition: prone, uses: proficiency_bonus, recharge: long_rest }
+      - id: stone
+        name: Stone's Endurance
+        channel: mutation
+        srd_source: Stone's Endurance
+        explanation: A dense, plated hide that absorbs a blow.
+        activation: { action: reaction, trigger: taking damage, reduces_damage: 1d12 + Constitution modifier, uses: proficiency_bonus, recharge: long_rest }
+      - id: storm
+        name: Storm's Thunder
+        channel: mutation
+        srd_source: Storm's Thunder
+        explanation: A concussive bellow released when struck.
+        activation: { action: reaction, trigger: damaged by a creature within 60 feet, damage: 1d8, damage_type: thunder, uses: proficiency_bonus, recharge: long_rest }

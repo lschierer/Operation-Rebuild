@@ -1,0 +1,48 @@
+# Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC).
+# The SRD halfling has no magic, so only the explanations are ours.
+# cspell: disable
+id: halfling
+name: Halfling
+srd_source: Halfling
+creature_type: Humanoid
+size: Small
+speed: 30
+explanation: >-
+  A small, quick line with steady nerves and a knack for going unnoticed.
+traits:
+  - id: brave
+    name: Brave
+    channel: mutation
+    srd_source: Brave
+    explanation: A damped fear response.
+    effects:
+      - { kind: advantage, target: "save:frightened" }
+
+  - id: halfling-nimbleness
+    name: Halfling Nimbleness
+    channel: mutation
+    srd_source: Halfling Nimbleness
+    explanation: >-
+      A small, flexible frame that slips between larger creatures. They can
+      move through the space of a creature one size larger but not stop there.
+    effects:
+      - { kind: flag, target: "move:through-larger-creatures" }
+
+  - id: luck
+    name: Luck
+    channel: mutation
+    srd_source: Luck
+    explanation: >-
+      Nanite-assisted reflexes let a halfling recover from a bad moment with super-human speed: a natural
+      1 on a d20 test is rerolled and the new roll must be used.
+    effects:
+      - { kind: flag, target: "luck:reroll-natural-1" }
+
+  - id: naturally-stealthy
+    name: Naturally Stealthy
+    channel: mutation
+    srd_source: Naturally Stealthy
+    explanation: >-
+      Can hide when obscured only by a creature at least one size larger.
+    effects:
+      - { kind: flag, target: "hide:behind-larger-creature" }

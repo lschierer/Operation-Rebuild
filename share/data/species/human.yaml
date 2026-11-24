@@ -1,0 +1,41 @@
+# Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC).
+# REVIEW: the SRD lets a human be Medium or Small; only Medium is modelled.
+# Feats are not modelled yet, so Versatile is deferred.
+# cspell: disable
+id: human
+name: Human
+srd_source: Human
+creature_type: Humanoid
+size: Medium
+speed: 30
+explanation: >-
+  The baseline stock from which the engineered lines were derived. Humans
+  carry no engineered mutation; their strength is adaptability. Most humans are infected with nanites to some degree, making them suspectible to the elf perception traits. 
+traits:
+  - id: resourceful
+    name: Resourceful
+    channel: technique
+    srd_source: Resourceful
+    explanation: >-
+      Rests well and returns to a task with fresh resolve. Grants Heroic
+      Inspiration after each long rest.
+    activation:
+      grants: heroic_inspiration
+      recharge: long_rest
+
+  - id: versatile
+    name: Versatile
+    channel: technique
+    srd_source: Versatile
+    deferred: true
+    explanation: >-
+      Gains an Origin feat of choice (Skilled is recommended). Deferred until
+      feats exist.
+
+choices:
+  - id: skillful
+    name: Skillful
+    pick: 1
+    srd_source: Skillful
+    channel: technique
+    options_from: skills

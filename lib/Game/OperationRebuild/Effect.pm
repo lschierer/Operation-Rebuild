@@ -11,7 +11,7 @@ use Game::OperationRebuild::Rules qw(:all);
 
 use constant KINDS => qw(
   ability_score skill_proficiency save_proficiency speed sense
-  resistance hit_points_per_level advantage disadvantage
+  resistance hit_points_per_level advantage disadvantage flag
 );
 
 use constant MODES => qw(add set);
@@ -33,6 +33,7 @@ my %VALID_TARGET = (
   hit_points_per_level => sub ($t) { $t eq 'max' },
   advantage           => sub ($t) { $t =~ /\A[a-z][a-z0-9:_ -]*\z/ },
   disadvantage        => sub ($t) { $t =~ /\A[a-z][a-z0-9:_ -]*\z/ },
+  flag                => sub ($t) { $t =~ /\A[a-z][a-z0-9:_-]*\z/ },
 );
 
 sub BUILD ($self, $args) {
@@ -97,6 +98,11 @@ Target is C<max>. C<value> hit points are added for each level.
 =item C<advantage>, C<disadvantage>
 
 Target is a free-form tag such as C<save:poisoned>.
+
+=item C<flag>
+
+A named rule hook that is not a number, such as C<luck:reroll-natural-1>.
+The rules that use it look it up with C<has_flag>.
 
 =back
 

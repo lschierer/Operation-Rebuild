@@ -10,6 +10,7 @@ etc/.gitkeep
 inc/ORBuild/Builder.pm
 INSTALL
 lib/Game/OperationRebuild.pm
+lib/Game/OperationRebuild/Choice.pm
 lib/Game/OperationRebuild/Client.pm
 lib/Game/OperationRebuild/Creature.pm
 lib/Game/OperationRebuild/Data.pm
@@ -30,6 +31,12 @@ operation-rebuild.sublime-workspace
 README
 sbin/operation-rebuild-server
 share/data/species/dwarf.yaml
+share/data/species/elf.yaml
+share/data/species/gnome.yaml
+share/data/species/goliath.yaml
+share/data/species/halfling.yaml
+share/data/species/human.yaml
+share/data/species/orc.yaml
 share/README
 t/00-load.t
 t/cli.t
@@ -37,3 +44,4 @@ t/creature.t
 t/data.t
 t/random-dice.t
 t/rules.t
+t/species.t

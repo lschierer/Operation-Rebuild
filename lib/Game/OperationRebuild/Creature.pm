@@ -29,6 +29,9 @@ has param traits => (
   default => sub { [] },
 );
 
+# Selections for the species' choices: choice id => [chosen option ids].
+has param choices => (isa => HashRef [ ArrayRef [Str] ], default => sub { {} });
+
 # Proficiencies chosen at creation, in addition to those effects grant.
 has param skill_proficiencies => (isa => ArrayRef [Str], default => sub { [] });
 has param save_proficiencies  => (isa => ArrayRef [Str], default => sub { [] });
@@ -47,14 +50,50 @@ sub BUILD ($self, $args) {
   croak "unknown abilities: @unknown" if @unknown;
   croak "unknown skill '$_'" for grep { !is_skill($_) } $self->skill_proficiencies->@*;
   croak "unknown ability '$_'" for grep { !is_ability($_) } $self->save_proficiencies->@*;
+  $self->_check_choices;
   return;
 }
 
+# Each choice the species offers must be answered with exactly 'pick' distinct,
+# valid options, and nothing else may be chosen.
+sub _check_choices ($self) {
+  my %offered = map { $_->id => $_ } ($self->has_species ? $self->species->choices->@* : ());
+  my $chosen  = $self->choices;
+  for my $id (sort keys %$chosen) {
+    croak "unknown choice '$id'" unless $offered{$id};
+  }
+  for my $id (sort keys %offered) {
+    my $choice = $offered{$id};
+    my @picked = ($chosen->{$id} // [])->@*;
+    croak sprintf("choice '%s' needs %d selection(s), got %d", $id, $choice->pick, scalar @picked)
+      unless @picked == $choice->pick;
+    croak "choice '$id' has duplicate selections" unless (uniq @picked) == @picked;
+    for my $option (@picked) {
+      croak "choice '$id' has no option '$option'" unless $choice->find_option($option);
+    }
+  }
+  return;
+}
+
+# Species traits, selected options of species choices, and the creature's own
+# traits, limited to those whose level has been reached.
 sub all_traits ($self) {
-  return (
+  my @selected;
+  if ($self->has_species) {
+    for my $choice ($self->species->choices->@*) {
+      push @selected, map { $choice->find_option($_) } ($self->choices->{ $choice->id } // [])->@*;
+    }
+  }
+  return grep { $_->min_level <= $self->level } (
     ($self->has_species ? $self->species->traits->@* : ()),
+    @selected,
     $self->traits->@*,
   );
+}
+
+# Activated abilities the creature can use at its current level.
+sub activations ($self) {
+  return map { $_->available_activations($self->level) } $self->all_traits;
 }
 
 sub effects ($self, $kind = undef) {
@@ -132,6 +171,10 @@ sub resistances ($self) {
   return sort(uniq(map { $_->target } $self->effects('resistance')));
 }
 
+sub has_flag ($self, $tag) {
+  return scalar($self->_targeted(flag => $tag)) ? 1 : 0;
+}
+
 sub has_advantage ($self, $tag) {
   return scalar($self->_targeted(advantage => $tag)) ? 1 : 0;
 }
@@ -201,6 +244,11 @@ Optional L<Game::OperationRebuild::Species>.
 
 Traits not supplied by the species.
 
+=attr choices
+
+Hash of choice id to the list of chosen option ids, answering the choices
+the species offers (for example an elf lineage).
+
 =attr skill_proficiencies
 
 Skills chosen at creation, in addition to those effects grant.
@@ -215,7 +263,13 @@ Sides of the class Hit Die. Needed only by C<max_hit_points>.
 
 =method all_traits
 
-Species traits followed by the creature's own.
+Active traits: the species traits, the selected options of its choices, and
+the creature's own, limited to those whose C<min_level> has been reached.
+
+=method activations
+
+Activated abilities usable at the creature's level, as hashes of data.
+The rules for using them are not implemented yet.
 
 =method effects
 
@@ -260,6 +314,10 @@ Range in feet of a sense, or 0.
 =method resistances
 
 Sorted list of damage types resisted.
+
+=method has_flag
+
+Whether an active effect sets a named rule hook.
 
 =method has_advantage
 

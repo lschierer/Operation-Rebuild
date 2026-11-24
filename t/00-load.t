@@ -9,6 +9,7 @@ my @modules = qw(
   Game::OperationRebuild::Effect
   Game::OperationRebuild::Trait
   Game::OperationRebuild::Species
+  Game::OperationRebuild::Choice
   Game::OperationRebuild::Creature
   Game::OperationRebuild::Share
   Game::OperationRebuild::Data

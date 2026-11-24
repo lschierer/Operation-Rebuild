@@ -1,5 +1,6 @@
 # Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC),
 # adapted: explanations are ours and describe biology instead of magic.
+# cspell: disable
 id: dwarf
 name: Dwarf
 srd_source: Dwarf
@@ -8,7 +9,7 @@ size: Medium
 speed: 30
 explanation: >-
   A line bred for deep mining and tunnel warfare: short, dense, and tolerant
-  of the poisons and dark of underground work.
+  of the poisons and dark of underground work. Like all post-apocolyptic species, they have been infected with nanites.  In the case of the dwarves, these enhance the the bioengineering that gives them superhuman abilities. 
 traits:
   - id: darkvision-dwarf
     name: Darkvision

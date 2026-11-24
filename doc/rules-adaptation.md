@@ -25,6 +25,22 @@ attribution and the "changes were made" notice stay accurate.
 4. **Species are engineered or diverged lines** of one ancestral stock. This
    leaves room for hybrids later.
 
+## Time
+
+Durations, rests and recharge periods use the SRD's game-time units (rounds,
+minutes, hours), never real-world time. As in Civilization or Castle of the
+Winds, game time is tied to turns by a mapping still to be defined together
+with combat and the strategic layer. Data files therefore say
+`duration_minutes: 10` and never refer to the clock.
+
+## Heritable nanites
+
+Some species carry nanites passed from mother to child during gestation. The
+goliath is the first case: the nanites sustain a body that would otherwise
+fail (blood pressure), and can be driven to grant Large Form. Since the
+setting is about rediscovering lost technology, nanites may deserve their own
+treatment in the tech tree later.
+
 ## Religion is not a spell list
 
 Religion is central to the setting. Miracles are real but are not available

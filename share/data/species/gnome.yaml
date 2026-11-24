@@ -1,0 +1,88 @@
+# Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC),
+# adapted: spells are replaced by biology and craft. Explanations are ours.
+# cspell: disable
+id: gnome
+name: Gnome
+srd_source: Gnome
+creature_type: Humanoid
+size: Small
+speed: 30
+explanation: >-
+  A small line bred for cleverness and concealment. Their skin shifts colour
+  to match their surroundings and they hold up well against mental strain.
+traits:
+  - id: darkvision-gnome
+    name: Darkvision
+    channel: mutation
+    srd_source: Darkvision
+    explanation: Large, light-gathering eyes.
+    effects:
+      - { kind: sense, target: darkvision, value: 60 }
+
+  - id: gnomish-cunning
+    name: Gnomish Cunning
+    channel: mutation
+    srd_source: Gnomish Cunning
+    explanation: >-
+      A stable, fast-processing nervous system that resists confusion,
+      persuasion and intimidation.
+    effects:
+      - { kind: advantage, target: "save:intelligence" }
+      - { kind: advantage, target: "save:wisdom" }
+      - { kind: advantage, target: "save:charisma" }
+
+choices:
+  - id: gnomish-lineage
+    name: Gnomish Lineage
+    pick: 1
+    options:
+      - id: forest-gnome
+        name: Forest Gnome
+        channel: mutation
+        srd_source: Forest Gnome
+        explanation: >-
+          Forest gnomes carry nanites, inherited from mother to child, that
+          work through the skin and the senses. They shift the skin's colour
+          and texture to match the surroundings, and they interpret the
+          sounds and body language of animals. REVIEW: replaces the SRD's
+          Minor Illusion and Speak with Animals spells.
+        activations:
+          - name: Nanite Camouflage
+            srd_replaces: Minor Illusion
+            uses: at_will
+            effect: >-
+              The skin matches the surroundings, making the gnome hard to
+              see while it stays still. REVIEW: exact mechanical benefit.
+          - name: Animal Communication
+            srd_replaces: Speak with Animals
+            uses: proficiency_bonus
+            recharge: long_rest
+            duration_minutes: 10
+            target: Beasts
+            effect: >-
+              Interprets animal sounds and body language and allows the
+              Influence action's skill options with Beasts. A Beast can only
+              report what it has perceived: usually the past day for living
+              things, longer for static terrain. Typical information is
+              nearby food and water (as the animal sees them) and the
+              directions of threats (as the animal sees them).
+            reveals: [ food, water, threats, nearby locations ]
+            memory: { living_things: 1 day, static_terrain: longer }
+
+      - id: rock-gnome
+        name: Rock Gnome
+        channel: technique
+        srd_source: Rock Gnome
+        explanation: |-
+          Gifted hands and a tinkerer's training. 
+
+          * Mending is a genetic predisposition to mechanical engineering combined with trained instincts for repair. It is not instant, but the sort of act that seems like magic to one without that training. 
+          * Clock Work Device is builds upon that mechanical engineering trait to create things rather than repair. 
+          * Prestidigitation is essentially slight of hand, a way of describing exceptionally high fine motor control, coordination, and a sense of timing.
+        activations:
+          - { name: Mending, srd_replaces: Mending, uses: at_will }
+          - { name: Prestidigitation, srd_replaces: Prestidigitation, uses: at_will }
+          - name: Clockwork Device
+            crafting_minutes: 10
+            max_active: 3
+            device: { armor_class: 5, hit_points: 1, lasts_hours: 8 }

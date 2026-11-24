@@ -1,0 +1,121 @@
+# Draft. Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC),
+# adapted: the SRD's spells and magic are replaced by biology. Explanations
+# are ours. Entries marked REVIEW are inventions that need a decision.
+# cspell: disable
+id: elf
+name: Elf
+srd_source: Elf
+creature_type: Humanoid
+size: Medium
+speed: 30
+explanation: >-
+  A tall, slow-ageing line bred for stealth and endurance. Lean muscle,
+  quick reflexes and sharp senses make them quiet and hard to surprise. They
+  age so slowly that other peoples believe they never die.
+traits:
+  - id: darkvision-elf
+    name: Darkvision
+    channel: mutation
+    srd_source: Darkvision
+    explanation: Large light-gathering eyes.
+    effects:
+      - { kind: sense, target: darkvision, value: 60 }
+
+  - id: fey-ancestry
+    name: Fey Ancestry
+    channel: mutation
+    srd_source: Fey Ancestry
+    explanation: >-
+      Resistance to pheromones and chemicals that sway mood or will.
+    effects:
+      - { kind: advantage, target: "save:charmed" }
+
+  - id: trance
+    name: Trance
+    channel: mutation
+    srd_source: Trance
+    explanation: >-
+      Half the brain can rest while the other stays aware, so an elf needs
+      far less sleep and cannot be sedated easily. The SRD adds that magic
+      cannot put an elf to sleep; here that becomes resistance to sedatives
+      (not yet modelled).
+    activation:
+      rest: long_rest_in_hours
+      hours: 4
+
+choices:
+  - id: keen-senses
+    name: Keen Senses
+    pick: 1
+    options:
+      - id: keen-insight
+        name: Insight
+        channel: mutation
+        srd_source: Keen Senses
+        explanation: Reads small changes in posture, scent and voice.
+        effects:
+          - { kind: skill_proficiency, target: insight }
+      - id: keen-perception
+        name: Perception
+        channel: mutation
+        srd_source: Keen Senses
+        explanation: Wide field of vision and acute hearing. Wider color spectrum for vision. Wider sound spectrum for hearing. 
+        effects:
+          - { kind: skill_proficiency, target: perception }
+      - id: keen-survival
+        name: Survival
+        channel: mutation
+        srd_source: Keen Senses
+        explanation: Tracks by scent and notices small signs in the land.
+        effects:
+          - { kind: skill_proficiency, target: survival }
+
+  # The SRD lineages grant spells. REVIEW: each is replaced by a biological
+  # ability with the same role and the same uses.
+  - id: elven-lineage
+    name: Elven Lineage
+    pick: 1
+    options:
+      - id: drow
+        name: Drow
+        channel: mutation
+        srd_source: Drow
+        explanation: >-
+          A cave-adapted variant with larger eyes and light-producing skin.
+        effects:
+          - { kind: sense, target: darkvision, value: 120 }
+        activations:
+          - { name: Bioluminescent Display, srd_replaces: Dancing Lights, uses: at_will }
+          - { name: Luminous Marking, srd_replaces: Faerie Fire, uses: 1, recharge: long_rest, min_level: 3 }
+          - { name: Spore Cloud, srd_replaces: Darkness, uses: 1, recharge: long_rest, min_level: 5 }
+      - id: high-elf
+        name: High Elf
+        channel: mutation
+        srd_source: High Elf
+        explanation: |-
+          A variant with fine control and a sense tuned to engineered life
+          and old technology. 
+
+          * Prestidigitation is essentially slight of hand, a way of describing exceptionally high fine motor control, coordination, and a sense of timing.
+          * Sense of the Engineered is an array of nanites attuned to detect the ultra low electronic emitions from other nanites that accompany nearly all bioengineered races.
+          * Burst of Speed is a nanite enhanced muscle activation allowing the user superhuman speed over short distances at the cost of higher lactose acid build up, thus requiring recovery between uses.
+        activations:
+          - { name: Prestidigitation, srd_replaces: Prestidigitation, uses: at_will }
+          - { name: Sense of the Engineered, srd_replaces: Detect Magic, uses: 1, recharge: long_rest, min_level: 3 }
+          - { name: Burst of Speed, srd_replaces: Misty Step, uses: 1, recharge: long_rest, min_level: 5 }
+      - id: wood-elf
+        name: Wood Elf
+        channel: mutation
+        srd_source: Wood Elf
+        explanation: |-
+          A longer-legged variant adapted to forest travel.
+
+          * Plant and Animal Affinity applies to bioengineered plants and animals, which make up the bulk of what survive the post-apocolyptic landscape. These almost always have a nanite component enhancing their bioengineered behavior. The wood elf's nanite array is able to interface with these. 
+          * Unlike the High Elf's Burst of Speed nanite activation, the Wood Elf's nanites are optimize to assist muscle endurance. 
+          * With sufficient training and concentration, the elf can use his/her enhanced senses to avoid disrupting nature in a way that allows for tracking providing the Silent Step capability. The rest requirement comes from the required concentration. 
+        effects:
+          - { kind: speed, target: walk, value: 5 }
+        activations:
+          - { name: Plant and Animal Affinity, srd_replaces: Druidcraft, uses: at_will }
+          - { name: Endurance Sprint, srd_replaces: Longstrider, uses: 1, recharge: long_rest, min_level: 3 }
+          - { name: Silent Step, srd_replaces: Pass without Trace, uses: 1, recharge: long_rest, min_level: 5 }
