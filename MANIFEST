@@ -10,6 +10,7 @@ etc/.gitkeep
 inc/ORBuild/Builder.pm
 INSTALL
 lib/Game/OperationRebuild.pm
+lib/Game/OperationRebuild/AbilityScores.pm
 lib/Game/OperationRebuild/Choice.pm
 lib/Game/OperationRebuild/Client.pm
 lib/Game/OperationRebuild/Creature.pm
@@ -18,6 +19,7 @@ lib/Game/OperationRebuild/Dice.pm
 lib/Game/OperationRebuild/Effect.pm
 lib/Game/OperationRebuild/Random.pm
 lib/Game/OperationRebuild/Role/Debuggable.pm
+lib/Game/OperationRebuild/Roller.pm
 lib/Game/OperationRebuild/Rules.pm
 lib/Game/OperationRebuild/Server.pm
 lib/Game/OperationRebuild/Share.pm
@@ -39,9 +41,11 @@ share/data/species/human.yaml
 share/data/species/orc.yaml
 share/README
 t/00-load.t
+t/ability-scores.t
 t/cli.t
 t/creature.t
 t/data.t
 t/random-dice.t
+t/roller.t
 t/rules.t
 t/species.t

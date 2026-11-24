@@ -14,6 +14,8 @@ my @modules = qw(
   Game::OperationRebuild::Share
   Game::OperationRebuild::Data
   Game::OperationRebuild::Dice
+  Game::OperationRebuild::Roller
+  Game::OperationRebuild::AbilityScores
   Game::OperationRebuild::Role::Debuggable
   Game::OperationRebuild::Client
   Game::OperationRebuild::Server

@@ -10,3 +10,15 @@ Requires Perl v5.42.0 or later and the SDL3 library with its Perl bindings.
 
 Both bin/operation-rebuild and sbin/operation-rebuild-server are installed
 into the normal script directory.
+
+Games::Dice::Advanced
+
+Operation Rebuild needs a Games::Dice::Advanced with a "rand" option (so rolls
+can be repeated from a seed) and keep/drop notation such as 4d6kh3. Both have
+been submitted upstream but are not in a release yet (the released 1.2 lacks
+them). Until they are, install the fork:
+
+    cpanm --reinstall https://github.com/lschierer/perl-modules-Games-Dice-Advanced/archive/refs/heads/keep-drop-dice.tar.gz
+
+The game checks this at startup and says so if the wrong version is installed.
+This section goes away once a release contains the changes.

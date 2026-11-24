@@ -31,6 +31,9 @@ my $build = ORBuild::Builder->new(
   requires => {
     'perl'            => 'v5.42.0',
     'File::ShareDir'  => 0,
+    # Needs the rand option and keep/drop notation submitted upstream; the
+    # released 1.2 lacks them (Roller checks and explains; see INSTALL).
+    'Games::Dice::Advanced' => '1.2',
     'Getopt::Long'    => 0,
     'Mooish::Base'    => 0,
     'SDL3'            => 0,
