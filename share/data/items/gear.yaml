@@ -1,0 +1,58 @@
+# Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC).
+# cspell: disable
+items:
+  - id: healers-kit
+    name: Healer's Kit
+    category: gear
+    cost: 5 GP
+    weight: 3
+    uses: 10
+    description: Has ten uses.
+
+  - id: crowbar
+    name: Crowbar
+    category: gear
+    cost: 2 GP
+    weight: 5
+
+  - id: pouch
+    name: Pouch
+    category: gear
+    cost: 5 SP
+    weight: 1
+
+  - id: travelers-clothes
+    name: Traveler's Clothes
+    category: gear
+    cost: 2 GP
+    weight: 4
+
+  - id: robe
+    name: Robe
+    category: gear
+    cost: 1 GP
+    weight: 4
+
+  - id: book
+    name: Book
+    category: gear
+    cost: 25 GP
+    weight: 5
+    description: >-
+      Contains fiction or nonfiction. Consulting an accurate nonfiction Book
+      about its topic gives a +5 bonus to Intelligence (Arcana, History,
+      Nature, or Religion) checks about that topic.
+
+  - id: parchment
+    name: Parchment
+    category: gear
+    cost: 1 SP
+    weight: 0
+    description: One sheet.
+
+  - id: quiver
+    name: Quiver
+    category: gear
+    cost: 1 GP
+    weight: 1
+    description: Holds up to 20 Arrows.

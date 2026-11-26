@@ -1,0 +1,64 @@
+# Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC).
+# cspell: disable
+items:
+  - id: thieves-tools
+    name: Thieves' Tools
+    category: tool
+    cost: 25 GP
+    weight: 1
+    tool:
+      ability: dexterity
+      utilize: [Pick a lock (DC 15), Disarm a trap (DC 15)]
+
+  - id: calligraphers-supplies
+    name: Calligrapher's Supplies
+    category: tool
+    cost: 10 GP
+    weight: 5
+    tool:
+      ability: dexterity
+      utilize: [Write text with impressive flourishes that guard against forgery (DC 15)]
+      # The SRD also lists Spell Scroll, which this setting does not have.
+      craft: [Ink]
+
+  # A Gaming Set is one kind of tool with four variants. Backgrounds ask for
+  # "one kind of Gaming Set", so the variants share a group.
+  - id: gaming-set-dice
+    name: Gaming Set (Dice)
+    category: tool
+    group: gaming-set
+    cost: 1 SP
+    weight: 0
+    tool:
+      ability: wisdom
+      utilize: [Discern whether someone is cheating (DC 10), Win the game (DC 20)]
+
+  - id: gaming-set-dragonchess
+    name: Gaming Set (Dragonchess)
+    category: tool
+    group: gaming-set
+    cost: 1 GP
+    weight: 0
+    tool:
+      ability: wisdom
+      utilize: [Discern whether someone is cheating (DC 10), Win the game (DC 20)]
+
+  - id: gaming-set-playing-cards
+    name: Gaming Set (Playing Cards)
+    category: tool
+    group: gaming-set
+    cost: 5 SP
+    weight: 0
+    tool:
+      ability: wisdom
+      utilize: [Discern whether someone is cheating (DC 10), Win the game (DC 20)]
+
+  - id: gaming-set-three-dragon-ante
+    name: Gaming Set (Three-Dragon Ante)
+    category: tool
+    group: gaming-set
+    cost: 1 GP
+    weight: 0
+    tool:
+      ability: wisdom
+      utilize: [Discern whether someone is cheating (DC 10), Win the game (DC 20)]

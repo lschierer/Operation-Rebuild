@@ -1,0 +1,11 @@
+# Mechanics follow SRD 5.2.1 (CC-BY-4.0, Wizards of the Coast LLC).
+# cspell: disable
+items:
+  # One purchase is a bundle of twenty arrows, stored in a quiver.
+  - id: arrows
+    name: Arrows
+    category: ammunition
+    cost: 1 GP
+    weight: 1
+    bundle: 20
+    description: Ammunition for a bow. A Quiver holds up to 20 Arrows.
