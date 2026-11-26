@@ -15,9 +15,11 @@ lib/Game/OperationRebuild/AbilityScores.pm
 lib/Game/OperationRebuild/Choice.pm
 lib/Game/OperationRebuild/Client.pm
 lib/Game/OperationRebuild/Creature.pm
+lib/Game/OperationRebuild/Currency.pm
 lib/Game/OperationRebuild/Data.pm
 lib/Game/OperationRebuild/Dice.pm
 lib/Game/OperationRebuild/Effect.pm
+lib/Game/OperationRebuild/Item.pm
 lib/Game/OperationRebuild/Random.pm
 lib/Game/OperationRebuild/Role/Debuggable.pm
 lib/Game/OperationRebuild/Roller.pm
@@ -33,6 +35,10 @@ operation-rebuild.sublime-project
 operation-rebuild.sublime-workspace
 README
 sbin/operation-rebuild-server
+share/data/items/ammunition.yaml
+share/data/items/gear.yaml
+share/data/items/tools.yaml
+share/data/items/weapons.yaml
 share/data/species/dwarf.yaml
 share/data/species/elf.yaml
 share/data/species/gnome.yaml
@@ -46,6 +52,7 @@ t/ability-scores.t
 t/cli.t
 t/creature.t
 t/data.t
+t/items.t
 t/random-dice.t
 t/roller.t
 t/rules.t
