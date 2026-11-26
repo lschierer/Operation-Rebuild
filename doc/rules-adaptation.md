@@ -201,3 +201,29 @@ Formulas learned by sages (see "Alchemy replaces spells") are different: they
 have no organ, so they always need materials from outside. Rule of thumb:
 innate ability means internal supply and rest; learned formula means external
 materials.
+
+## Formula decisions (answers)
+
+- **Mage Hand**: dropped.
+- **Floating Disk**: kept, as a trivial materials formula based on magnetism.
+- **Message**: a trick, similar to ventriloquism.
+- **Shield**: kept as a magnetic field. It only affects metal and
+  electromagnetic (nanite-based or lightning) attacks. It does not stop
+  chemical attacks (acid, fire, poison, gas), which look equally magical;
+  some magic is harder to block than others.
+- **Chill Touch** is cold damage (the injury from touching very cold metal
+  with bare skin). **Shocking Grasp** is lightning damage (an electrical
+  burn). They are separate SRD damage types (cold, lightning) and stay so.
+- **Materials**: every formula needs materials; cheap ones cost a trivial
+  supply. A small item and material model comes with equipment.
+- **Nanite formulas**: no prerequisite is modelled. A player who chooses one
+  is assumed to have the nanites for it. The game does not simulate a
+  character who wants to do something their body cannot.
+- **Name**: the feat that replaces Magic Initiate is **Alchemist**. In the
+  world the word carries a connotation of the unscientific and superstitious,
+  which is how survivors would see it; the same practice is chemistry at the
+  engineering level (the word changed to "chemist" in time).
+- **Skills** keep their SRD names (Arcana, Religion) as the in-world names,
+  following the two-level convention.
+- **Backgrounds** to start with: Criminal, Sage, Soldier. Acolyte is out for
+  now.
