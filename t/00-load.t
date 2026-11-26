@@ -12,6 +12,8 @@ my @modules = qw(
   Game::OperationRebuild::Choice
   Game::OperationRebuild::Creature
   Game::OperationRebuild::Share
+  Game::OperationRebuild::Currency
+  Game::OperationRebuild::Item
   Game::OperationRebuild::Data
   Game::OperationRebuild::Dice
   Game::OperationRebuild::Roller
